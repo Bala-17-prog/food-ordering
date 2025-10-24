@@ -1,0 +1,328 @@
+/* --- CSS Variables for Easy Theming --- */
+:root {
+    /* Primary Colors */
+    --primary-color: #ff6b3d;      /* Vibrant Orange for the hero background */
+    --offer-color: #333333;        /* Dark background for offer badge */
+    --success-color: #48c479;      /* Green for logged-in Add to Cart */
+    --warning-color: #ff9933;      /* Orange for Login Required button */
+    
+    /* Backgrounds & Text */
+    --background-grey: #f8f8f8;    /* Main body background */
+    --card-background: #ffffff;
+    --text-color-dark: #333;
+    --subtle-text-color: #6a6a6a;
+    --text-color-light: #f0f0f0;   /* White text on hero */
+    
+    /* Buttons */
+    --button-color: #ffffff;       /* White button background */
+    --button-text-color: #ff6b3d;  /* Orange button text */
+    
+    /* Shadows */
+    --shadow-heavy: 0 8px 16px rgba(0, 0, 0, 0.1);
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Global & Base Styling --- */
+.home-container {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    background-color: var(--background-grey);
+}
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+/* --- 1. Navbar Styling (Used by Header.jsx) --- */
+/* NOTE: The Header.jsx component already defines the global navbar. 
+   These styles target elements within the home-container itself.
+*/
+
+/* --- 2. Hero Section Styling --- */
+.hero-section {
+    padding: 0 50px;
+    margin-bottom: 50px;
+}
+
+.hero-card {
+    position: relative;
+    height: 550px;
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.ibb.co/L5rK5qg/food-delivery-hero.jpg'); 
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 80px 0 0 80px;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 107, 61, 0.6), transparent);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-color-light);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 1rem;
+    color: var(--text-color-light);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+
+.primary-btn {
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+}
+.primary-btn:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* --- 3. Explore & List Section Styling --- */
+.explore-section {
+    padding: 20px 50px 40px;
+}
+
+.explore-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color-dark);
+    margin-bottom: 10px;
+}
+
+.explore-description {
+    font-size: 1rem;
+    color: var(--subtle-text-color);
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.home-section {
+    padding: 0 50px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color-dark);
+    margin: 20px 0 15px;
+}
+
+.marquee-banner {
+    margin-bottom: 25px;
+    padding: 10px 0;
+    background: #fff0f0; 
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.9rem;
+}
+
+/* --- Restaurant List Grid (Rows and Columns) --- */
+.restaurant-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px 20px;
+    padding-bottom: 40px;
+}
+
+.restaurant-card {
+    background: var(--card-background);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-heavy);
+}
+
+/* Image & Offer */
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.offer-badge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--offer-color); 
+    color: white;
+    padding: 6px 10px;
+    border-top-right-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+/* Card Details */
+.card-details {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.card-info {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    color: var(--subtle-text-color);
+}
+
+.rating-pill {
+    background-color: var(--success-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.separator {
+    margin: 0 8px;
+    font-weight: 900;
+    color: #ccc;
+}
+
+.cuisine-text {
+    font-size: 0.9rem;
+    color: var(--subtle-text-color);
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Conditional Add to Cart Button --- */
+.btn.add-to-cart-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Logged-in state (Primary/Success) */
+.btn.add-to-cart-btn.primary {
+    background-color: var(--success-color); 
+    color: white;
+}
+.btn.add-to-cart-btn.primary:hover {
+    background-color: #3cb371;
+}
+
+/* Logged-out state (Secondary/Warning) */
+.btn.add-to-cart-btn.secondary {
+    background-color: var(--warning-color); 
+    color: white;
+}
+.btn.add-to-cart-btn.secondary:hover {
+    background-color: #e68a00;
+}
+
+/* --- 4. Footer & Owner Info --- */
+.owner-info {
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+    background-color: var(--background-grey);
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 1024px) {
+    .navbar, .hero-section, .explore-section, .home-section {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .hero-card {
+        height: 450px;
+    }
+    .hero-content {
+        padding: 50px 0 0 50px;
+        width: 60%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .nav-links {
+        display: none;
+    }
+    .hero-section {
+        padding: 0 20px;
+    }
+    .hero-card {
+        height: 350px;
+    }
+    .hero-content {
+        padding: 30px;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(255, 107, 61, 0.7), transparent);
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-description {
+        display: none;
+    }
+    .restaurant-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .explore-section, .home-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

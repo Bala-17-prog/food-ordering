@@ -1,0 +1,151 @@
+/* Zomato/Swiggy Inspired Light Theme */
+:root {
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --primary-text: #1c1c1c;
+  --secondary-text: #535665;
+  --accent-red: #E23744;
+  --accent-red-hover: #c72a37;
+  --border-color: #e0e0e0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--primary-text);
+  min-height: 100vh;
+}
+
+.app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--accent-red);
+  text-decoration: none;
+}
+
+.header nav a {
+  margin-left: 20px;
+  color: var(--secondary-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.header nav a:hover {
+  color: var(--accent-red);
+}
+
+.header .btn {
+  margin-left: 10px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer {
+  padding: 24px 28px;
+  text-align: center;
+  color: var(--secondary-text);
+  background-color: #f8f8f8;
+  border-top: 1px solid var(--border-color);
+}
+
+.card {
+  background: var(--surface);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.btn.primary {
+  background-color: var(--accent-red);
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: var(--accent-red-hover);
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red);
+}
+
+/* Styles for Home Page */
+.home-page .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  margin-bottom: 20px;
+}
+
+.home-page .restaurant-list, .home-page .category-list {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.home-page .restaurant-list::-webkit-scrollbar,
+.home-page .category-list::-webkit-scrollbar {
+  display: none;
+}
+
+.home-page .restaurant-card {
+  width: 275px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.home-page .restaurant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}

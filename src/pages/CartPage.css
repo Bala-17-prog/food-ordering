@@ -1,0 +1,251 @@
+/* --- CSS Variables --- */
+:root {
+    --primary-red: #e63946;    /* Stronger Red for main actions (Place Order) */
+    --remove-red: #ff8c8c;     /* Lighter Red for Remove buttons */
+    --success-green: #457b9d;  /* Bluish-green for totals/success messages */
+    
+    --background-color: #f1faee;    /* Very light, off-white background */
+    --card-background: #ffffff;
+    --text-color-dark: #1d3557;     /* Deep blue for titles */
+    --text-color-subtle: #457b9d;
+    --border-color: #a8dadc;
+    
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Page Layout --- */
+.cart-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: var(--background-color);
+    font-family: 'Arial', sans-serif;
+}
+
+.cart-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--text-color-dark);
+    margin-bottom: 30px;
+    transition: color 0.5s ease;
+}
+
+.cart-content {
+    display: flex;
+    gap: 30px;
+}
+
+.cart-items {
+    flex-grow: 1;
+    min-width: 60%;
+}
+
+.empty-cart-message {
+    font-size: 1.2rem;
+    color: var(--text-color-subtle);
+    padding: 20px;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* --- 1. Cart Item Card Styling --- */
+.cart-item-card {
+    display: flex;
+    align-items: center;
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cart-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 20px;
+    background-color: #a8dadc; 
+    border: 2px solid var(--text-color-subtle);
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-color-dark);
+}
+
+.item-quantity, .item-price {
+    font-size: 1rem;
+    color: var(--text-color-subtle);
+}
+.item-price {
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-remove {
+    background-color: var(--card-background);
+    border: 2px solid var(--remove-red);
+    color: var(--remove-red);
+    margin-left: 20px;
+}
+
+.btn-remove:hover {
+    background-color: var(--remove-red);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* --- 3. Order Summary Card Styling --- */
+.order-summary-card {
+    width: 350px;
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: var(--shadow-heavy);
+    height: fit-content;
+    border: 1px solid var(--border-color);
+}
+
+.summary-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-color-dark);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: var(--text-color-subtle);
+    margin-bottom: 12px;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid var(--border-color);
+    color: var(--text-color-dark);
+}
+
+/* --- Place Order Button --- */
+.btn-place-order {
+    width: 100%;
+    margin-top: 25px;
+    background-color: var(--primary-red);
+    color: white;
+    border: 1px solid var(--primary-red);
+    padding: 15px 0;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.4);
+}
+
+.btn-place-order:hover:not(:disabled) {
+    background-color: #c42d3c;
+    box-shadow: 0 6px 15px rgba(230, 57, 70, 0.6);
+}
+
+.btn-place-order:disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* --- Order Status Messages (Feedback) --- */
+.order-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+.order-message.processing {
+    background-color: #fff8e1;
+    color: #ffc107;
+    border-color: #ffc107;
+}
+.order-message.success {
+    background-color: #e8f8f9;
+    color: var(--success-green);
+    border-color: var(--success-green);
+}
+.order-message.error {
+    background-color: #ffe8e8;
+    color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+
+/* --- 4. Media Queries for Responsiveness --- */
+@media (max-width: 992px) {
+    .cart-content {
+        flex-direction: column;
+    }
+    .order-summary-card {
+        width: 100%;
+        order: -1; 
+    }
+    .cart-items {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .cart-page {
+        padding: 20px 10px;
+    }
+    .cart-title {
+        font-size: 2rem;
+    }
+    .cart-item-card {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    .item-image {
+        width: 50px;
+        height: 50px;
+    }
+    .item-name {
+        font-size: 1.1rem;
+    }
+    .btn-remove {
+        margin-left: auto;
+        margin-top: 10px;
+        flex-basis: 100%;
+        order: 10;
+    }
+}

@@ -1,0 +1,32 @@
+/* Add these styles to your Header.css or global CSS */
+
+.cart-link {
+    position: relative;
+    /* Ensure there is space around the cart link */
+    margin-left: 20px; 
+    padding: 5px 0;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px; /* Adjust vertical position */
+    right: -10px; /* Adjust horizontal position */
+    
+    background-color: var(--accent-red); /* Using the accent color from styles.css */
+    color: white;
+    
+    /* Small, circular pill shape */
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    min-width: 20px; /* Ensures single digit numbers look circular */
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Ensure the NavLink color is consistent */
+.header nav a.cart-link {
+    /* Overrides default padding/margin adjustments if necessary */
+    margin: 0;
+}
